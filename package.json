@@ -10,6 +10,7 @@
     "lint": "eslint src --ext .ts,.tsx,.vue --fix"
   },
   "dependencies": {
+    "@unhead/vue": "^1.7.0",
     "dayjs": "^1.11.9",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.6",

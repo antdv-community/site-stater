@@ -25,7 +25,9 @@ export default defineConfig(({ mode }) => {
       }),
       vueJsx(),
       AutoProps(),
-      Markdown({}),
+      Markdown({
+        headEnabled: true
+      }),
       // should be placed after `Markdown()`
       Components({
         // allow auto load markdown components under `./src/components/`

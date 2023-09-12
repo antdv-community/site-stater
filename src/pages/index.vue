@@ -1,9 +1,14 @@
 <script setup lang="ts">
 const route = useRoute()
+definePage({
+  meta: {
+    title: '首页'
+  }
+})
 </script>
 
 <template>
-  <div>首页</div>
+  <div>{{ route.meta }}</div>
 </template>
 
 <style scoped></style>
