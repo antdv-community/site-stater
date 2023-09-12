@@ -1,8 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import routes from '~pages'
+import { createRouter, createWebHistory } from 'vue-router/auto'
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+  history: createWebHistory()
 })
 
 export default router

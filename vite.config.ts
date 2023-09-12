@@ -5,36 +5,44 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import Markdown from 'unplugin-vue-markdown/vite'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import VueRouter from 'unplugin-vue-router/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
 import AutoProps from 'unplugin-vue-tsx-auto-props/vite'
 import Unocss from 'unocss/vite'
-import Pages from 'vite-plugin-pages'
+import AntdvResolver from 'antdv-component-resolver'
 const baseSrc = fileURLToPath(new URL('./src', import.meta.url))
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   loadEnv(mode, process.cwd())
   return {
     plugins: [
+      VueRouter({
+        extensions: ['.vue', '.md'],
+        dts: './types/typed-router.d.ts'
+      }),
       vue({
         include: [/\.vue$/, /\.md$/]
       }),
       vueJsx(),
       AutoProps(),
       Markdown({}),
-      Pages({
-        extensions: ['vue', 'md'],
-        resolver: 'vue'
-      }),
       // should be placed after `Markdown()`
       Components({
         // allow auto load markdown components under `./src/components/`
         extensions: ['vue', 'md'],
-        dts: 'types/components.d.ts'
-
+        dts: 'types/components.d.ts',
+        resolvers: [AntdvResolver()]
         // allow auto import and register components used in markdown
         // customLoaderMatcher: (path) => path.endsWith('.md')
       }),
       AutoImport({
-        imports: ['vue', 'pinia', 'vue-router', 'vue-i18n', '@vueuse/core'],
+        imports: [
+          'vue',
+          'pinia',
+          'vue-i18n',
+          '@vueuse/core',
+          VueRouterAutoImports
+        ],
         dts: 'types/auto-imports.d.ts',
         dirs: ['src/stores', 'src/composables']
       }),

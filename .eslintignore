@@ -1,3 +1,4 @@
 types/components.d.ts
 types/auto-imports.d.ts
 types/module.d.ts
+types/typed-router.d.ts

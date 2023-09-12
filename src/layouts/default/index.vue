@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>Default Layout</div>
+  <a-config-provider>Default Layout</a-config-provider>
 </template>
 
 <style scoped></style>
