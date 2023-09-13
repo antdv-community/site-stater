@@ -1,9 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <a-config-provider>
+  <a-layout class="site-default-layout">
     <slot />
-  </a-config-provider>
+  </a-layout>
 </template>
 
-<style scoped></style>
+<style scoped lang="less">
+.site-default-layout {
+  height: 100%;
+  width: 100%;
+}
+</style>

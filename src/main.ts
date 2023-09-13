@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import 'ant-design-vue/dist/reset.css'
+import '@/styles/index.less'
 import 'uno.css'
 
 const app = createApp(App)

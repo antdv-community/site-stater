@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@unhead/vue": "^1.7.0",
+    "@v-c/utils": "^0.0.25",
+    "@vueuse/head": "^2.0.0",
     "dayjs": "^1.11.9",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.6",

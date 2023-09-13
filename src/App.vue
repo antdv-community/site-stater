@@ -18,7 +18,13 @@ const comp = computed(() => {
 </script>
 
 <template>
-  <component :is="comp">
-    <router-view />
-  </component>
+  <a-config-provider>
+    <a-app>
+      <a-token>
+        <component :is="comp">
+          <router-view />
+        </component>
+      </a-token>
+    </a-app>
+  </a-config-provider>
 </template>
