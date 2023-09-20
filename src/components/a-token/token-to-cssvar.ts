@@ -12,18 +12,19 @@ const dynamicStyleMark = `${prefixCls}${Date.now()}-${Math.random()}`
 export const registerTokenToCSSVar = (token: GlobalToken) => {
   // TODO
   const variables: Record<string, any> = {}
-  if (!token)
-    return
+  if (!token) return
 
   for (const key in token) {
     const val = token[key as keyof GlobalToken]
     variables[formatKey(key, prefixCls)] = val
   }
-  const cssList = Object.keys(variables).map(key => `${key}: ${variables[key]};`)
+  const cssList = Object.keys(variables).map(
+    (key) => `${key}: ${variables[key]};`
+  )
   if (canUseDom()) {
     updateCSS(
       `:root {${cssList.join('\n')}}`,
-      `${dynamicStyleMark}-dynamic-theme`,
+      `${dynamicStyleMark}-dynamic-theme`
     )
   }
 }
